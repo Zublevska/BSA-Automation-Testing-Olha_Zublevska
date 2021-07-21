@@ -15,6 +15,8 @@ class AuthPage {
 
     this.ddlOption = new Button('div.selectStyles__option=TEXT_TO_REPLACE');
     this.submitButton = new Button('button');
+    
+    this.signInButton = new Button('button');
   }
 
   async register({ name, surname, birthDate, email, password, phone, status, gender }) {
@@ -33,6 +35,13 @@ class AuthPage {
     await this.ddlOption.clickByText(status);
 
     await this.submitButton.click();
+  }
+
+  async login({ email, password }) {
+    await this.emailField.setValue(email);
+    await this.passwordField.setValue(password);
+
+    await this.signInButton.click();
   }
 }
 
